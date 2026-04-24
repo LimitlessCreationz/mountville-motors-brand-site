@@ -2,10 +2,12 @@
 import Base from '../layouts/Base.astro';
 import CTABand from '../components/CTABand.astro';
 import { SITE } from '../lib/site';
+import { financingFAQSchema } from '../lib/schema';
 ---
 <Base
   title={`How financing works — ${SITE.name}`}
   description="Buy here, pay here financing in Columbia, PA. We work with all credit situations — no score cutoff, no bank in the middle."
+  extraSchema={financingFAQSchema}
 >
   <section class="hero-fin">
     <div class="container">
