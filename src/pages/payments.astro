@@ -4,7 +4,8 @@ import { SITE } from '../lib/site';
 // TODO: Jordan — confirm the customer payment portal URL. Placeholder linked below.
 const PAYMENT_PORTAL_URL = 'https://www.mountvillemotorsales.com/'; // TEMP — replace with real portal URL
 ---
-<Base title={`Make a payment — ${SITE.name}`}>
+<Base title={`Make a payment — ${SITE.name}`}
+  description={`Existing Mountville Motors customers can pay online, by phone with Barbara at ${SITE.paymentsPhone}, or in person at the lot in ${SITE.address.city}.`}>
   <section class="hero-pay">
     <div class="container">
       <p class="eyebrow">Existing customers</p>

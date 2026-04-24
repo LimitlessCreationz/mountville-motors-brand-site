@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import { SITE } from '../lib/site';
 ---
-<Base title={`Contact — ${SITE.name}`}>
+<Base title={`Contact — ${SITE.name}`}
+  description={`Call ${SITE.phone}, text, or visit Mountville Motors at ${SITE.address.street}, ${SITE.address.city}, ${SITE.address.state}. Family-owned BHPH dealer since ${SITE.established}.`}>
   <section class="hero-contact">
     <div class="container">
       <p class="eyebrow">Contact</p>
@@ -14,16 +15,16 @@ import { SITE } from '../lib/site';
   <section class="section">
     <div class="container">
       <div class="contact-grid">
+        <a href={SITE.smsHref('Hi Jordan, saw your site. Looking for info.')} class="ccard">
+          <div class="ccard-eyebrow">TEXT (FASTEST)</div>
+          <div class="ccard-big">Text us — same-day reply</div>
+          <div class="ccard-note">Opens your texting app. Jordan replies personally.</div>
+        </a>
+
         <a href={`tel:${SITE.phoneTel}`} class="ccard">
           <div class="ccard-eyebrow">CALL</div>
           <div class="ccard-big">{SITE.phone}</div>
           <div class="ccard-note">During open hours. Voicemail after.</div>
-        </a>
-
-        <a href={SITE.applyUrl} class="ccard">
-          <div class="ccard-eyebrow">TEXT (FASTEST)</div>
-          <div class="ccard-big">Get started in 10 minutes</div>
-          <div class="ccard-note">Same-day text back.</div>
         </a>
 
         <a href={`https://maps.google.com/?q=${encodeURIComponent(SITE.address.full)}`} target="_blank" rel="noreferrer" class="ccard">

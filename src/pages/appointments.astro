@@ -3,7 +3,8 @@ import Base from '../layouts/Base.astro';
 import CTABand from '../components/CTABand.astro';
 import { SITE } from '../lib/site';
 ---
-<Base title={`Schedule a visit — ${SITE.name}`}>
+<Base title={`Schedule a visit — ${SITE.name}`}
+  description={`Walk in anytime during open hours or book a specific time. Mountville Motors, ${SITE.address.street}, ${SITE.address.city}, ${SITE.address.state}. Call ${SITE.phone} or text to set up.`}>
   <section class="hero-appt">
     <div class="container">
       <p class="eyebrow">Schedule a visit</p>

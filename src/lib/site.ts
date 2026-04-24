@@ -63,6 +63,11 @@ export const SITE = {
   applyUrl: 'https://apply.mountvillemotors.com',
   reviewWallUrl: 'https://mmsreview.com/wall', // Mountville's live DealerEcho instance
 
+  // Click-to-text: routes to Marty/Jordan lead-gen line (not Katalina's main line).
+  // Brand-site visitors who prefer SMS enter the same funnel as landing traffic.
+  smsHref: (body = 'Hi Jordan, saw your site. Looking for info.') =>
+    `sms:+17172829188?&body=${encodeURIComponent(body)}`,
+
   // Pricing claims (verified by Jordan)
   pricing: {
     downRange: '$1,000 – $3,000',

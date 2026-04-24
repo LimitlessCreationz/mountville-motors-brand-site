@@ -26,6 +26,10 @@ const {
       </a>
     )}
 
+    <a href={SITE.smsHref()} class="ctab-text">
+      Or text us — same-day reply
+    </a>
+
     <a
       href={primary === 'apply' ? `tel:${SITE.phoneTel}` : SITE.applyUrl}
       class="ctab-secondary"
@@ -54,6 +58,19 @@ const {
     color: var(--c-white);
     font-size: 17px;
     padding: 16px 24px;
+  }
+  .ctab-text {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 20px;
+    background: var(--c-navy-deep);
+    color: var(--c-amber);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    min-height: 44px;
+    line-height: 20px;
   }
   .ctab-secondary {
     display: block;
