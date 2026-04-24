@@ -1,43 +1,41 @@
-# Astro Starter Kit: Minimal
+# Mountville Motors — Brand Site (Build 6b)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+**Live (Vercel preview):** https://main-site-ten-zeta.vercel.app
+**Eventual domain:** mountvillemotors.com
+**Stack:** Astro 5 (static-first) + Vercel
+**Phone:** 717-681-9610 (main brand line per phone strategy B)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Pages (9 total, all static, mobile-first)
 
-## 🚀 Project Structure
+- `/` — home (hero, value pillars, customer story, inventory teaser)
+- `/about` — brand story, "what we're not", how we work
+- `/contact` — 3 ways to reach + hours
+- `/financing` — how BHPH works, 3-question conversation, FAQ
+- `/inventory` — placeholder (live data via IDMS/Drive coming)
+- `/reviews` — embeds MMSreview.com/wall (DealerEcho)
+- `/appointments` — booking paths + what to bring
+- `/payments` — 3 payment methods (online portal, phone, in-person)
+- `/bad-no-credit` — 301 redirect to /financing (preserves SEO slug from old GHL Sites)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Companion projects
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Lead-gen funnel:** [mountville-motors-landing](https://github.com/LimitlessCreationz/mountville-motors-landing) → apply.mountvillemotors.com (Build 6a)
+- **GHL workflows:** location `fQiT6tA026tzxAjXFopP` (Marty v2 funnel)
+- **Review wall:** https://mmsreview.com/wall (DealerEcho — Mountville's live tenant)
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Brand tokens (carried from Build 6a for consistency)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Navy `#0F2556`, Amber `#E8A64B`, Off-white `#F7F5F2`
+- Inter (sans) + JetBrains Mono
+- Mobile-first: tap targets ≥44px, font ≥17px on inputs
 
-Any static assets, like images, can be placed in the `public/` directory.
+## SEO
 
-## 🧞 Commands
+- LocalBusiness schema embedded on every page
+- Open Graph tags
+- Existing URL slugs preserved from old GHL Sites (`/inventory`, `/contact`, `/bad-no-credit`, `/appointments`)
+- `/bad-no-credit` → 301 redirect to `/financing`
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+*Built with Claude Code. Auto-deploys on push to `master` via Vercel-GitHub integration.*
