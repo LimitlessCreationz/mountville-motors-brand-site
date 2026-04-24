@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+
+const lastUpdated = '2026-04-24';
+---
+<Base title={`Privacy Policy — ${SITE.name}`} description="How Mountville Motors collects, uses, and protects your information.">
+  <section class="hero-legal">
+    <div class="container">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Your information, handled honestly.</h1>
+      <p class="lede">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section legal">
+    <div class="container">
+      <p class="intro">
+        {SITE.legalName} ("we," "us," "our") respects your privacy. This policy explains what we collect, how
+        we use it, and your choices. Plain English where we can. The legal stuff is here when you need it.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>When you fill out a form, text us, call us, or visit the dealership, we may collect:</p>
+      <ul>
+        <li><strong>Contact info:</strong> name, phone, email, mailing address.</li>
+        <li><strong>Vehicle interest:</strong> what type of car you're looking for, your budget.</li>
+        <li><strong>Financial info you choose to share:</strong> down payment range, income type, employment, references — for the purpose of evaluating financing.</li>
+        <li><strong>Communications:</strong> the text messages, calls, and emails between us.</li>
+        <li><strong>Identity verification:</strong> driver's license, proof of address, proof of income — collected at the dealership for closing.</li>
+        <li><strong>Web data:</strong> basic page-view info if you visit our website (we don't track you across other sites).</li>
+      </ul>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To respond to your inquiry and help you find a vehicle.</li>
+        <li>To evaluate financing options if you apply.</li>
+        <li>To complete the sale and ongoing servicing of your loan if we do business.</li>
+        <li>To send you transactional messages (appointment reminders, payment reminders, account updates).</li>
+        <li>To send occasional marketing messages (only if you've opted in via TCPA consent on our forms — you can opt out anytime by replying STOP).</li>
+        <li>To comply with applicable laws (FTC, FCRA, state regulations).</li>
+      </ul>
+
+      <h2>Who we share with</h2>
+      <p>We don't sell your information. We may share it with:</p>
+      <ul>
+        <li><strong>Service providers</strong> we use to operate (CRM, payment processor, vehicle history reports). These providers are bound by their own privacy obligations.</li>
+        <li><strong>Government authorities</strong> when legally required (subpoena, court order, regulatory request).</li>
+        <li><strong>Credit reporting and verification services</strong> when applying for financing — limited to what's needed to verify your information.</li>
+      </ul>
+
+      <h2>Text messages (TCPA)</h2>
+      <p>
+        By submitting your phone number on our forms or texting us first, you agree we can text you about your inquiry,
+        appointments, financing, and payment reminders. Message and data rates may apply. Reply <strong>STOP</strong> at
+        any time to opt out. Reply <strong>HELP</strong> for help. Our texting cadence is purpose-driven, not promotional spam.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Our website uses minimal cookies for basic functionality (e.g., remembering your form progress so you don't lose
+        it if you switch tabs). We don't use third-party tracking cookies, advertising cookies, or behavioral profiling
+        on our own site. If you arrived from a paid ad, the originating ad platform (e.g., Facebook, Google) may have
+        their own tracking — refer to their policies.
+      </p>
+
+      <h2>Your rights</h2>
+      <ul>
+        <li><strong>Access:</strong> ask us what information we have on you.</li>
+        <li><strong>Correction:</strong> ask us to fix anything that's wrong.</li>
+        <li><strong>Deletion:</strong> ask us to delete your information (subject to legal retention requirements for financing records).</li>
+        <li><strong>Opt-out of marketing:</strong> reply STOP to texts, or call us to remove from marketing lists.</li>
+      </ul>
+      <p>To exercise any of these, contact us — see below.</p>
+
+      <h2>How we protect your information</h2>
+      <p>
+        We use industry-standard security measures (encrypted transmission, access controls, secure document handling).
+        No system is 100% secure, but we take this seriously and audit our practices regularly.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        Our services are for adults 18+. We don't knowingly collect information from anyone under 18. If you believe a
+        minor has submitted information, contact us and we'll delete it.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy as our practices evolve or as required by law. The "Last updated" date at the top
+        reflects the most recent change. Material changes will be posted here.
+      </p>
+
+      <h2>Contact us about privacy</h2>
+      <p>
+        Questions about this policy or your information?
+      </p>
+      <ul class="contact-list">
+        <li><strong>Phone:</strong> <a href={`tel:${SITE.phoneTel}`}>{SITE.phone}</a></li>
+        <li><strong>Mail:</strong> {SITE.address.full}</li>
+      </ul>
+
+      <p class="footer-note">
+        This privacy policy is provided as a starting point and reflects current practices. {SITE.legalName} reserves
+        the right to update it as needed for compliance with applicable federal and state laws including TCPA, FCRA,
+        Pennsylvania consumer protection statutes, and others.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-legal { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-legal h1 { color: var(--c-white); }
+  .hero-legal .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-legal .lede { color: var(--c-silver); font-size: 14px; }
+
+  .legal { background: var(--c-white); }
+  .legal .intro { font-size: 17px; color: var(--c-charcoal-70); margin-bottom: var(--space-xl); }
+  .legal h2 { color: var(--c-navy); margin-top: var(--space-xl); margin-bottom: var(--space-md); font-size: 22px; }
+  .legal p { font-size: 15px; line-height: 1.6; color: var(--c-charcoal); }
+  .legal ul { padding-left: 22px; }
+  .legal li { padding: 4px 0; font-size: 15px; line-height: 1.6; color: var(--c-charcoal); }
+  .contact-list { list-style: none; padding-left: 0; margin-top: var(--space-md); }
+  .contact-list li { padding: 6px 0; }
+  .footer-note { font-size: 13px; color: var(--c-charcoal-70); font-style: italic; margin-top: var(--space-xl); padding-top: var(--space-md); border-top: 1px solid var(--c-line); }
+</style>

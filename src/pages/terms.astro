@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+
+const lastUpdated = '2026-04-24';
+---
+<Base title={`Terms of Use — ${SITE.name}`} description="Terms governing use of the Mountville Motors website.">
+  <section class="hero-legal">
+    <div class="container">
+      <p class="eyebrow">Terms of Use</p>
+      <h1>The fine print, in plain English.</h1>
+      <p class="lede">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section legal">
+    <div class="container">
+      <p class="intro">
+        These terms govern your use of <strong>mountvillemotors.com</strong> and related properties operated by
+        {SITE.legalName} ("we," "us," "our"). By using the site, you agree to these terms. If you don't agree, please
+        don't use the site.
+      </p>
+
+      <h2>Site purpose</h2>
+      <p>
+        This website provides information about our dealership, vehicles, financing process, and a way to contact us
+        or apply for financing. It is informational and does not constitute an offer of credit, a guarantee of
+        approval, or a binding sales agreement. Specific vehicle pricing, financing terms, and approval are determined
+        in person at the dealership and subject to verification.
+      </p>
+
+      <h2>Inventory and pricing</h2>
+      <p>
+        Vehicle availability, pricing, and specifications can change without notice. We make every effort to keep
+        listings current, but errors happen. Final terms are what's agreed to in writing at the time of sale.
+        Photos and descriptions are representative; come see the actual vehicle before committing.
+      </p>
+
+      <h2>Financing</h2>
+      <p>
+        We offer in-house ("buy here, pay here") financing. Approval is based on income verification, identity,
+        residence, and other factors at our discretion. Down payment ranges and weekly payment ranges shown on this
+        site are typical examples — your specific terms will be presented in writing for your review and signature
+        before any agreement.
+      </p>
+
+      <h2>Text messages (TCPA)</h2>
+      <p>
+        By providing your phone number on any form or texting us first, you consent to receive text messages from
+        {SITE.legalName} regarding your inquiry, appointments, financing, payments, and related communications.
+        Message and data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong>
+        for help. Consent is not a condition of purchase.
+      </p>
+
+      <h2>Disclaimer of warranties</h2>
+      <p>
+        The website is provided "as is" without warranties of any kind, express or implied. We don't guarantee the
+        site will be error-free, uninterrupted, or always up to date. Any reliance you place on website information
+        is at your own risk.
+      </p>
+      <p>
+        Vehicle warranties, where applicable, are governed by the specific terms in your purchase agreement and
+        applicable state and federal law. Used vehicles are sold subject to inspection and any disclosed conditions —
+        ask for details on each specific vehicle.
+      </p>
+
+      <h2>Limitation of liability</h2>
+      <p>
+        To the fullest extent permitted by law, {SITE.legalName} is not liable for indirect, incidental, special,
+        or consequential damages arising from your use of the site or any third-party services linked from it.
+      </p>
+
+      <h2>External links</h2>
+      <p>
+        Our site may link to third-party websites (e.g., Google Maps, our review platform). We are not responsible
+        for the content, privacy practices, or terms of those external sites.
+      </p>
+
+      <h2>Intellectual property</h2>
+      <p>
+        Site content, layout, and trademarks are the property of {SITE.legalName} or our licensors. You may not
+        reproduce, modify, or commercially use the content without permission.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>
+        These terms are governed by the laws of the Commonwealth of Pennsylvania, without regard to conflict-of-law
+        principles. Any dispute will be resolved in the appropriate state or federal courts located in Lancaster County,
+        Pennsylvania.
+      </p>
+
+      <h2>Changes to these terms</h2>
+      <p>
+        We may revise these terms periodically. Continued use of the site after revisions constitutes acceptance of
+        the updated terms. The "Last updated" date reflects the most recent change.
+      </p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms?</p>
+      <ul class="contact-list">
+        <li><strong>Phone:</strong> <a href={`tel:${SITE.phoneTel}`}>{SITE.phone}</a></li>
+        <li><strong>Mail:</strong> {SITE.address.full}</li>
+      </ul>
+
+      <p class="footer-note">
+        These terms are provided as a starting framework. {SITE.legalName} reserves the right to amend as needed for
+        legal compliance and operational changes. For specific legal questions, consult an attorney.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-legal { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-legal h1 { color: var(--c-white); }
+  .hero-legal .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-legal .lede { color: var(--c-silver); font-size: 14px; }
+
+  .legal { background: var(--c-white); }
+  .legal .intro { font-size: 17px; color: var(--c-charcoal-70); margin-bottom: var(--space-xl); }
+  .legal h2 { color: var(--c-navy); margin-top: var(--space-xl); margin-bottom: var(--space-md); font-size: 22px; }
+  .legal p { font-size: 15px; line-height: 1.6; color: var(--c-charcoal); }
+  .legal ul { padding-left: 22px; }
+  .legal li { padding: 4px 0; font-size: 15px; line-height: 1.6; color: var(--c-charcoal); }
+  .contact-list { list-style: none; padding-left: 0; margin-top: var(--space-md); }
+  .contact-list li { padding: 6px 0; }
+  .footer-note { font-size: 13px; color: var(--c-charcoal-70); font-style: italic; margin-top: var(--space-xl); padding-top: var(--space-md); border-top: 1px solid var(--c-line); }
+</style>

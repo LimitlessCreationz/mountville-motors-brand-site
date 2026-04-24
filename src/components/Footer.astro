@@ -48,8 +48,16 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
+    <div class="ftr-links">
+      <a href="/privacy">Privacy Policy</a>
+      <span class="ftr-sep">·</span>
+      <a href="/terms">Terms of Use</a>
+      <span class="ftr-sep">·</span>
+      <a href="/contact">Contact</a>
+    </div>
+
     <div class="ftr-legal">
-      © {currentYear} {SITE.legalName}. Independent in-house financing. Approval subject to verification of income, address, and identity. All vehicles sold as described and inspected prior to delivery. Family-owned and operating in Columbia since {established}.
+      © {currentYear} {SITE.legalName}. Independent in-house financing. Approval subject to verification of income, address, and identity. Vehicles inspected for safety and drivability prior to delivery; comfort features sold as-is. Family-owned and operating in Columbia since {established}. Customer first names used with permission; details may be condensed for clarity.
     </div>
   </div>
 </footer>
@@ -102,10 +110,25 @@ const currentYear = new Date().getFullYear();
   .ftr-hours { display: grid; gap: 4px; }
   .ftr-hour { display: flex; justify-content: space-between; font-size: 13px; color: var(--c-white); }
   .ftr-hour .closed { color: var(--c-silver); }
-  .ftr-legal {
+  .ftr-links {
     margin-top: var(--space-lg);
     padding-top: var(--space-md);
     border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .ftr-links a {
+    color: var(--c-silver-l);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .ftr-links a:hover { color: var(--c-amber); }
+  .ftr-sep { color: var(--c-silver); opacity: 0.5; }
+  .ftr-legal {
+    margin-top: var(--space-md);
     font-size: 11px;
     color: var(--c-silver);
     line-height: 1.5;
