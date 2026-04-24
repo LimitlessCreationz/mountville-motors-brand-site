@@ -1,9 +1,12 @@
 /**
  * Site-wide constants for Mountville Motors brand site (mountvillemotors.com).
  *
- * IMPORTANT phone allocation per Jordan decision 2026-04-24 (phone strategy B):
- * - 717-681-9610 = MAIN BRAND line. Used here on the brand site.
- * - 717-282-9188 = Lead-gen line. Used on apply.mountvillemotors.com (Build 6a).
+ * Routing per Master Doc §8 / §11-G + Jordan decision 2026-04-24 (phone strategy B):
+ *
+ *   SALES        → Jordan @ 717-282-9188 (GHL/Marty-managed, lead-gen funnel)
+ *   GENERAL/MAIN → 717-681-9610 (default brand line, also Service via ext 108)
+ *   PAYMENTS     → Barbara @ 717-681-9612 (separate phone — pays go here)
+ *   ESCALATIONS  → Chris @ 717-681-9610 ext 102 (NEVER for general inquiries)
  *
  * Personal cell 717-324-3397 is NEVER customer-facing (privacy rule).
  */
@@ -13,13 +16,18 @@ export const SITE = {
   legalName: 'Mountville Motor Sales',
   tagline: 'Family-owned BHPH dealer in Columbia, PA · Since 2001',
 
+  // Default brand "Call us" — routes through main line (Service ext 108 = Katalina)
   phone: '717-681-9610',
   phoneTel: '+17176819610',
   phoneFormatted: '(717) 681-9610',
 
-  // Lead-gen alternative (apply funnel) — surface where clearly tied to "apply"
+  // Lead-gen / sales — routes to Jordan via Marty workflow
   applyPhone: '717-282-9188',
   applyPhoneTel: '+17172829188',
+
+  // Existing-customer payments — Barbara directly
+  paymentsPhone: '717-681-9612',
+  paymentsPhoneTel: '+17176819612',
 
   email: 'info@mountvillemotors.com', // verify with Jordan
 
