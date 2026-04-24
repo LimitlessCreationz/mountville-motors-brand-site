@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { SITE } from '../lib/site';
+---
+<Base title={`Inventory — ${SITE.name}`} description="Current vehicles available at Mountville Motors. Updated weekly.">
+  <section class="hero-inv">
+    <div class="container">
+      <p class="eyebrow">Current inventory</p>
+      <h1>What's on the lot.</h1>
+      <p class="lede">
+        Most cars in {SITE.pricing.inventoryRange}. New arrivals weekly.
+        Inspected and reconditioned before delivery.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="placeholder">
+        <p class="eyebrow">Inventory feed launching shortly</p>
+        <h2>Want to see what we have right now?</h2>
+        <p>Our live inventory feed connects to our DMS — it's coming online this week. In the meantime, text us with what you're looking for and we'll send back what fits.</p>
+        <div class="cta-row">
+          <a href={SITE.applyUrl} class="btn btn-primary">Tell us what you want →</a>
+          <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost">Or call {SITE.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand title="Don't see what you need?" lead="Tell us your vehicle type, budget, and timeline. We'll text you when something fits." primary="apply" />
+</Base>
+
+<style>
+  .hero-inv { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-inv h1 { color: var(--c-white); }
+  .hero-inv .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-inv .lede { color: var(--c-silver-l); }
+
+  .placeholder {
+    background: var(--c-off-white);
+    border: 2px dashed var(--c-line);
+    border-radius: 12px;
+    padding: var(--space-2xl) var(--space-lg);
+    text-align: center;
+  }
+  .placeholder h2 { margin-bottom: var(--space-md); }
+  .cta-row { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-top: var(--space-md); }
+  .cta-row a { text-decoration: none; }
+</style>

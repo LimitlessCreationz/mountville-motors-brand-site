@@ -1,0 +1,67 @@
+---
+import { SITE } from '../lib/site';
+interface Props {
+  title?: string;
+  lead?: string;
+  primary?: 'apply' | 'call';
+}
+const {
+  title = 'Ready when you are.',
+  lead = 'Same-day text back during open hours. Or come walk the lot — no appointment needed.',
+  primary = 'apply',
+} = Astro.props;
+---
+<section class="ctab">
+  <div class="container">
+    <h2 class="ctab-h">{title}</h2>
+    <p class="ctab-p">{lead}</p>
+
+    {primary === 'apply' ? (
+      <a href={SITE.applyUrl} class="btn btn-primary ctab-btn">
+        Get pre-qualified in 10 minutes →
+      </a>
+    ) : (
+      <a href={`tel:${SITE.phoneTel}`} class="btn btn-primary ctab-btn">
+        Call {SITE.phone}
+      </a>
+    )}
+
+    <a
+      href={primary === 'apply' ? `tel:${SITE.phoneTel}` : SITE.applyUrl}
+      class="ctab-secondary"
+    >
+      {primary === 'apply' ? `Or call ${SITE.phone}` : 'Or apply online →'}
+    </a>
+  </div>
+</section>
+
+<style>
+  .ctab {
+    background: var(--c-amber);
+    color: var(--c-navy-deep);
+    padding: var(--space-2xl) 0;
+    text-align: center;
+  }
+  .ctab-h { color: var(--c-navy-deep); margin-bottom: 8px; }
+  .ctab-p {
+    color: var(--c-charcoal);
+    margin-bottom: var(--space-lg);
+    font-size: 16px;
+  }
+  .ctab-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--c-white);
+    font-size: 17px;
+    padding: 16px 24px;
+  }
+  .ctab-secondary {
+    display: block;
+    margin-top: var(--space-md);
+    color: var(--c-navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+</style>

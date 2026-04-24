@@ -1,0 +1,117 @@
+---
+import { SITE } from '../lib/site';
+const { name, phone, phoneTel, address, hours, established } = SITE;
+const currentYear = new Date().getFullYear();
+---
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <img src="/logo.png" alt={name} width="42" height="42" class="ftr-logo" />
+      <div>
+        <div class="ftr-name">MOUNTVILLE MOTORS</div>
+        <div class="ftr-sub">COLUMBIA · PENNSYLVANIA</div>
+      </div>
+    </div>
+
+    <div class="ftr-map">
+      <iframe
+        title="Map to Mountville Motors"
+        src={`https://www.google.com/maps?q=${encodeURIComponent(address.full)}&output=embed`}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-label">Visit</div>
+        <a href={`https://maps.google.com/?q=${encodeURIComponent(address.full)}`} target="_blank" rel="noreferrer" class="ftr-addr">
+          {address.street}<br />{address.city}, {address.state} {address.zip}
+        </a>
+      </div>
+      <div>
+        <div class="ftr-label">Talk</div>
+        <a href={`tel:${phoneTel}`} class="ftr-phone">{phone}</a>
+        <div class="ftr-note">Text or call — either works.</div>
+      </div>
+      <div>
+        <div class="ftr-label">Hours</div>
+        <div class="ftr-hours">
+          {hours.map(h => (
+            <div class="ftr-hour">
+              <span>{h.day}</span>
+              <span class={h.open === 'Closed' ? 'closed' : ''}>{h.open}</span>
+            </div>
+          ))}
+        </div>
+        <div class="ftr-note">Closed major holidays.</div>
+      </div>
+    </div>
+
+    <div class="ftr-legal">
+      © {currentYear} {SITE.legalName}. Independent in-house financing. Approval subject to verification of income, address, and identity. All vehicles sold as described and inspected prior to delivery. Family-owned and operating in Columbia since {established}.
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ftr {
+    background: var(--c-navy-deep);
+    color: var(--c-silver-l);
+    padding: var(--space-2xl) var(--space-md) var(--space-lg);
+  }
+  .ftr-inner { max-width: var(--container-desktop); margin: 0 auto; }
+  .ftr-brand { display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-lg); }
+  .ftr-logo { background: var(--c-navy); border-radius: 8px; padding: 4px; }
+  .ftr-name { font-size: 14px; font-weight: 700; color: var(--c-white); letter-spacing: 0.02em; }
+  .ftr-sub { font-size: 11px; color: var(--c-silver); letter-spacing: 0.16em; }
+  .ftr-map {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: var(--space-lg);
+  }
+  .ftr-map iframe {
+    width: 100%;
+    height: 180px;
+    border: 0;
+    display: block;
+    filter: grayscale(0.2) contrast(0.95);
+  }
+  .ftr-grid {
+    display: grid;
+    gap: var(--space-lg);
+    font-size: 14px;
+  }
+  .ftr-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--c-amber);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .ftr-addr, .ftr-phone {
+    color: var(--c-white);
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+  .ftr-phone { font-size: 17px; }
+  .ftr-note { font-size: 13px; color: var(--c-silver); margin-top: 4px; }
+  .ftr-hours { display: grid; gap: 4px; }
+  .ftr-hour { display: flex; justify-content: space-between; font-size: 13px; color: var(--c-white); }
+  .ftr-hour .closed { color: var(--c-silver); }
+  .ftr-legal {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 11px;
+    color: var(--c-silver);
+    line-height: 1.5;
+  }
+  @media (min-width: 768px) {
+    .ftr-grid { grid-template-columns: 1fr 1fr 1fr; gap: var(--space-xl); }
+    .ftr-map iframe { height: 220px; }
+  }
+</style>

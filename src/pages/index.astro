@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { SITE } from '../lib/site';
+---
+<Base>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Family-owned in Columbia · Since {SITE.established}</p>
+      <h1>Real cars. Real payments.<br/>Real people behind it.</h1>
+      <p class="hero-numbers">
+        <strong>{SITE.pricing.downRange} down</strong>
+        <span class="dot">·</span>
+        <strong>{SITE.pricing.weeklyRange}</strong>
+        <span class="dot">·</span>
+        <strong>drive this week</strong>
+      </p>
+      <p class="hero-sub">
+        We're an independent buy-here, pay-here dealer on Lancaster Ave. We work with all credit situations
+        — no score cutoff, no bank in the middle, no theater.
+      </p>
+      <div class="hero-cta">
+        <a href="/inventory" class="btn btn-primary hero-btn">See current inventory →</a>
+        <a href={SITE.applyUrl} class="btn btn-amber hero-btn">Get pre-qualified</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value pillars -->
+  <section class="section pillars">
+    <div class="container">
+      <div class="pillar-grid">
+        <div class="pillar">
+          <div class="pillar-num">1</div>
+          <h3>You text. Someone real texts back.</h3>
+          <p>No call center. No script. Same-day reply during open hours.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">2</div>
+          <h3>We fund the loan ourselves.</h3>
+          <p>No bank means no score cutoff. Steady income is the signal we need.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">3</div>
+          <h3>What you sign for is what you pay.</h3>
+          <p>Fixed payments from day one. No balloon, no surprise fees, no GPS tracker.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer story (named first only per privacy rule) -->
+  <section class="section dark proof">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--c-amber);">Customer story</p>
+      <blockquote class="quote">
+        "After six places turned us away, Mountville treated us with respect. First real yes I'd heard in a year.
+        I brought my last four pay stubs and that was the whole conversation."
+      </blockquote>
+      <div class="quote-by">
+        <strong>Penny</strong> · Columbia, PA · 2014 Toyota Corolla
+      </div>
+      <a href={SITE.reviewWallUrl} class="proof-link" target="_blank" rel="noreferrer">
+        Read more customer stories on our review wall →
+      </a>
+    </div>
+  </section>
+
+  <!-- Inventory teaser -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What we have</p>
+      <h2>Most of our lot moves in {SITE.pricing.inventoryRange}.</h2>
+      <p>Sedans, SUVs, trucks, minivans — inspected and reconditioned before delivery. New arrivals weekly.</p>
+      <a href="/inventory" class="btn btn-primary">Browse current inventory →</a>
+    </div>
+  </section>
+
+  <CTABand
+    title="Ready to look?"
+    lead="Stop by 806 Lancaster Ave during open hours. Or text us first — we'll have something ready when you arrive."
+    primary="apply"
+  />
+</Base>
+
+<style>
+  .hero {
+    background: var(--c-navy);
+    color: var(--c-silver-l);
+    padding: var(--space-2xl) 0 var(--space-2xl);
+  }
+  .hero h1 { color: var(--c-white); font-size: 36px; margin-bottom: var(--space-md); }
+  .hero .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-numbers {
+    color: var(--c-white);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+  }
+  .hero-numbers .dot { color: var(--c-amber); margin: 0 8px; }
+  .hero-sub { color: var(--c-silver-l); font-size: 17px; margin-bottom: var(--space-lg); }
+  .hero-cta { display: flex; flex-direction: column; gap: 10px; }
+  .hero-btn { text-decoration: none; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; }
+  @media (min-width: 768px) {
+    .hero { padding: var(--space-3xl) 0; }
+    .hero h1 { font-size: 48px; }
+    .hero-cta { flex-direction: row; }
+    .hero-btn { flex: 1; max-width: 280px; }
+  }
+
+  .pillars { background: var(--c-off-white); }
+  .pillar-grid { display: grid; gap: var(--space-lg); }
+  .pillar { padding: var(--space-md); }
+  .pillar-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--c-amber);
+    color: var(--c-navy-deep);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: var(--space-sm);
+  }
+  .pillar h3 { margin-bottom: 6px; }
+  .pillar p { color: var(--c-charcoal-70); font-size: 15px; }
+  @media (min-width: 768px) {
+    .pillar-grid { grid-template-columns: 1fr 1fr 1fr; gap: var(--space-xl); }
+  }
+
+  .proof .quote {
+    font-size: 19px;
+    line-height: 1.5;
+    margin: 0 0 var(--space-md);
+    border: none;
+    padding: 0;
+    color: var(--c-white);
+    font-style: normal;
+  }
+  .proof .quote::before { content: '"'; color: var(--c-amber); margin-right: 4px; font-size: 28px; }
+  .quote-by { color: var(--c-silver); font-size: 14px; margin-bottom: var(--space-md); }
+  .proof-link { color: var(--c-amber); text-decoration: none; font-weight: 600; font-size: 14px; }
+</style>

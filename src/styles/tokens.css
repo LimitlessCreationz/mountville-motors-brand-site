@@ -1,0 +1,44 @@
+/* Mountville Motors — Brand tokens
+ * Carries over from Build 6a (apply.mountvillemotors.com) for visual consistency.
+ * Mobile-first: tap targets ≥44px, font ≥17px on inputs (prevents iOS zoom).
+ */
+
+:root {
+  /* Colors (carried from site.jsx C tokens) */
+  --c-navy:        #0F2556;
+  --c-navy-deep:  #0A1A3F;
+  --c-silver:      #B8BCC2;
+  --c-silver-l:    #D6D9DE;
+  --c-amber:       #E8A64B;
+  --c-amber-d:    #C8871F;
+  --c-white:       #FFFFFF;
+  --c-off-white:   #F7F5F2;
+  --c-charcoal:    #2B2F36;
+  --c-charcoal-70: #4B5058;
+  --c-line:        #E3DFD9;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Mobile-first breakpoints */
+  --bp-tablet:  768px;
+  --bp-desktop: 1024px;
+
+  /* Tap target minimum (Apple HIG) */
+  --tap-min: 44px;
+
+  /* Container max-widths */
+  --container-mobile: 100%;
+  --container-tablet: 720px;
+  --container-desktop: 960px;
+}

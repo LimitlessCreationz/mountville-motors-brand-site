@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+// TODO: Jordan — confirm the customer payment portal URL. Placeholder linked below.
+const PAYMENT_PORTAL_URL = 'https://www.mountvillemotorsales.com/'; // TEMP — replace with real portal URL
+---
+<Base title={`Make a payment — ${SITE.name}`}>
+  <section class="hero-pay">
+    <div class="container">
+      <p class="eyebrow">Existing customers</p>
+      <h1>Make a payment.</h1>
+      <p class="lede">Choose your method below. Questions? Call us during open hours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pay-grid">
+        <div class="pay-card">
+          <div class="pay-eyebrow">ONLINE</div>
+          <h3>Pay via portal</h3>
+          <p>Use the link below to log in and pay by debit/credit/ACH.</p>
+          <a href={PAYMENT_PORTAL_URL} class="btn btn-primary" target="_blank" rel="noreferrer">Open payment portal →</a>
+        </div>
+        <div class="pay-card">
+          <div class="pay-eyebrow">PHONE</div>
+          <h3>Pay by phone</h3>
+          <p>Call us during open hours and we'll process your payment over the phone.</p>
+          <a href={`tel:${SITE.phoneTel}`} class="btn btn-primary">Call {SITE.phone}</a>
+        </div>
+        <div class="pay-card">
+          <div class="pay-eyebrow">IN PERSON</div>
+          <h3>Drop by the lot</h3>
+          <p>Cash, check, or card. {SITE.address.street}, {SITE.address.city}, {SITE.address.state}.</p>
+          <a href={`https://maps.google.com/?q=${encodeURIComponent(SITE.address.full)}`} target="_blank" rel="noreferrer" class="btn btn-ghost">Get directions →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--c-amber);">Need help?</p>
+      <h2 style="color: var(--c-white);">If something's off, talk to us early.</h2>
+      <p style="color: var(--c-silver-l);">
+        Lost a job? Surprise expense? Don't wait until the payment is late. Call us — we work things out
+        with people who tell us what's happening. That's the relationship.
+      </p>
+      <a href={`tel:${SITE.phoneTel}`} class="btn btn-amber">Talk to us — {SITE.phone}</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-pay { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-pay h1 { color: var(--c-white); }
+  .hero-pay .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-pay .lede { color: var(--c-silver-l); }
+
+  .pay-grid { display: grid; gap: var(--space-md); }
+  .pay-card {
+    padding: var(--space-lg);
+    background: var(--c-white);
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+  }
+  .pay-eyebrow { font-size: 11px; font-weight: 600; color: var(--c-amber-d); letter-spacing: 0.18em; margin-bottom: 8px; }
+  .pay-card h3 { margin-bottom: 8px; color: var(--c-navy); }
+  .pay-card p { color: var(--c-charcoal-70); font-size: 15px; margin-bottom: var(--space-md); }
+  .pay-card .btn { text-decoration: none; display: inline-block; }
+  @media (min-width: 768px) {
+    .pay-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+</style>

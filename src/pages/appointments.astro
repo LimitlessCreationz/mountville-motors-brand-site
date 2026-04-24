@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { SITE } from '../lib/site';
+---
+<Base title={`Schedule a visit — ${SITE.name}`}>
+  <section class="hero-appt">
+    <div class="container">
+      <p class="eyebrow">Schedule a visit</p>
+      <h1>Two ways to book.</h1>
+      <p class="lede">
+        Walk in any time during open hours — no appointment needed. Or pick a specific time below
+        and we'll have a car ready when you arrive.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="opt-grid">
+        <a href={SITE.applyUrl} class="opt">
+          <div class="opt-eyebrow">FASTEST</div>
+          <div class="opt-big">Get pre-qualified first.</div>
+          <p>Tell us what you're looking for + your situation. We'll text you with what fits + a time to come see it.</p>
+          <span class="opt-cta">Get pre-qualified →</span>
+        </a>
+        <a href={`tel:${SITE.phoneTel}`} class="opt">
+          <div class="opt-eyebrow">CALL TO BOOK</div>
+          <div class="opt-big">{SITE.phone}</div>
+          <p>Talk to a real person. We'll lock in a time that works for both of us.</p>
+          <span class="opt-cta">Call now →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--c-amber);">When you come in, bring</p>
+      <ul class="bring-list">
+        <li>Driver's license</li>
+        <li>Recent pay stubs (last 2-4)</li>
+        <li>Proof of address (utility bill works)</li>
+        <li>Your down payment (or what you've got toward it)</li>
+      </ul>
+      <p class="bring-note" style="color: var(--c-silver-l);">Don't have it all? Come in anyway. We'll figure out what we need to move forward.</p>
+    </div>
+  </section>
+
+  <CTABand title="Open today?" lead={`Yes, during open hours. Stop by ${SITE.address.street}.`} primary="call" />
+</Base>
+
+<style>
+  .hero-appt { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-appt h1 { color: var(--c-white); }
+  .hero-appt .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-appt .lede { color: var(--c-silver-l); max-width: 640px; }
+
+  .opt-grid { display: grid; gap: var(--space-md); }
+  .opt {
+    display: block;
+    padding: var(--space-lg);
+    background: var(--c-white);
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--c-charcoal);
+    transition: transform 0.1s ease;
+  }
+  .opt:hover { transform: translateY(-2px); border-color: var(--c-navy); }
+  .opt-eyebrow { font-size: 11px; font-weight: 600; color: var(--c-amber-d); letter-spacing: 0.18em; margin-bottom: 8px; }
+  .opt-big { font-size: 22px; font-weight: 700; color: var(--c-navy); margin-bottom: 8px; }
+  .opt p { color: var(--c-charcoal-70); font-size: 15px; margin-bottom: var(--space-md); }
+  .opt-cta { color: var(--c-navy); font-weight: 600; font-size: 14px; }
+  @media (min-width: 768px) {
+    .opt-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .bring-list { padding-left: 20px; max-width: 480px; }
+  .bring-list li { padding: 4px 0; color: var(--c-white); font-size: 17px; }
+  .bring-note { margin-top: var(--space-md); font-style: italic; }
+</style>

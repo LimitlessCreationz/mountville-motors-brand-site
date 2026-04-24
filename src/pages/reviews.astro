@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { SITE } from '../lib/site';
+---
+<Base title={`Reviews — ${SITE.name}`} description={`See what real customers say. ${SITE.reviews.rating} stars on Google with ${SITE.reviews.count} reviews.`}>
+  <section class="hero-rev">
+    <div class="container">
+      <p class="eyebrow">Reviews</p>
+      <h1>What our customers say.</h1>
+      <div class="rating-big">
+        <span class="stars">★ {SITE.reviews.rating}</span>
+        <span class="count">on {SITE.reviews.source} · {SITE.reviews.count} reviews</span>
+      </div>
+      <a href={SITE.reviews.url} target="_blank" rel="noreferrer" class="btn btn-amber">
+        Read on Google →
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Customer wall</p>
+      <h2>Stories from people who bought here.</h2>
+      <p>Updated continuously by our customers via our review platform.</p>
+    </div>
+    <div class="wall-frame">
+      <iframe
+        title="Mountville Motors customer review wall"
+        src={SITE.reviewWallUrl}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <CTABand title="Want to add yours?" lead="Bought a car from us? Tap below to share your story." primary="call" />
+</Base>
+
+<style>
+  .hero-rev { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; text-align: center; }
+  .hero-rev h1 { color: var(--c-white); }
+  .hero-rev .eyebrow { color: var(--c-amber); border-color: var(--c-amber); display: inline-block; }
+  .rating-big { margin-bottom: var(--space-lg); }
+  .rating-big .stars { display: block; font-size: 40px; color: var(--c-amber); font-weight: 700; }
+  .rating-big .count { color: var(--c-silver-l); font-size: 14px; }
+
+  .wall-frame {
+    width: 100%;
+    max-width: var(--container-desktop);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  .wall-frame iframe {
+    width: 100%;
+    height: 700px;
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+    background: var(--c-white);
+  }
+</style>

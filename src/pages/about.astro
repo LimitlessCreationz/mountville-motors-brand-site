@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { SITE } from '../lib/site';
+---
+<Base
+  title={`About — ${SITE.name}`}
+  description={`Family-owned BHPH dealership on Lancaster Ave in Columbia, PA. In continuous operation since ${SITE.established}. Hundreds of families served.`}
+>
+  <section class="hero-about">
+    <div class="container">
+      <p class="eyebrow">About Mountville Motors</p>
+      <h1>Neighborly by design.</h1>
+      <p class="lede">
+        We're an independent, family-owned dealership on Lancaster Ave — in continuous operation since
+        July 1, {SITE.established}. Hundreds of families from Lancaster and York County have bought here.
+        Most hear about us from a cousin.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What we're not.</h2>
+      <ul class="not-list">
+        <li>We're not a subprime chain. No quotas, no scripts.</li>
+        <li>We don't use GPS trackers on your car.</li>
+        <li>No balloon payments. What you sign for is what you pay.</li>
+        <li>No bait-and-switch on down payment. The number we agree to is the number.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--c-amber);">How we work</p>
+      <h2 style="color: var(--c-white);">Three things that haven't changed since 2001.</h2>
+      <div class="how-grid">
+        <div class="how">
+          <h3>We fund the loans ourselves.</h3>
+          <p>No bank in the middle. We make the call on what works — based on your income, not your score.</p>
+        </div>
+        <div class="how">
+          <h3>You can walk the lot before you commit.</h3>
+          <p>Come see the cars. Drive what you like. We'll talk numbers when you're ready.</p>
+        </div>
+        <div class="how">
+          <h3>Your relationship with us doesn't end when you drive off.</h3>
+          <p>We stay in touch. If something breaks early, we want to know. If you need a second car later, we'll remember you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">By the numbers</p>
+      <div class="stats">
+        <div class="stat"><strong>{new Date().getFullYear() - SITE.established}+</strong><span>years in business</span></div>
+        <div class="stat"><strong>{SITE.reviews.count}</strong><span>{SITE.reviews.source} reviews</span></div>
+        <div class="stat"><strong>{SITE.reviews.rating} ★</strong><span>average rating</span></div>
+        <div class="stat"><strong>Lancaster + York</strong><span>counties served</span></div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand title="Come see for yourself." lead="Walk the lot during open hours. No appointment needed." primary="call" />
+</Base>
+
+<style>
+  .hero-about { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-about h1 { color: var(--c-white); }
+  .hero-about .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-about .lede { color: var(--c-silver-l); font-size: 17px; max-width: 640px; }
+
+  .not-list { list-style: none; padding: 0; }
+  .not-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--c-line);
+    font-weight: 500;
+    color: var(--c-charcoal);
+  }
+  .not-list li::before { content: '— '; color: var(--c-amber-d); font-weight: 700; }
+  .not-list li:last-child { border-bottom: none; }
+
+  .how-grid { display: grid; gap: var(--space-lg); }
+  .how h3 { color: var(--c-white); }
+  .how p { color: var(--c-silver-l); }
+  @media (min-width: 768px) {
+    .how-grid { grid-template-columns: 1fr 1fr 1fr; gap: var(--space-xl); }
+  }
+
+  .stats {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat {
+    padding: var(--space-md);
+    background: var(--c-off-white);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .stat strong { display: block; font-size: 28px; color: var(--c-navy); font-weight: 700; }
+  .stat span { font-size: 12px; color: var(--c-charcoal-70); text-transform: uppercase; letter-spacing: 0.1em; }
+  @media (min-width: 768px) {
+    .stats { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .stat strong { font-size: 36px; }
+  }
+</style>

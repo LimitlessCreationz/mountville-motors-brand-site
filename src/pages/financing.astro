@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { SITE } from '../lib/site';
+---
+<Base
+  title={`How financing works — ${SITE.name}`}
+  description="Buy here, pay here financing in Columbia, PA. We work with all credit situations — no score cutoff, no bank in the middle."
+>
+  <section class="hero-fin">
+    <div class="container">
+      <p class="eyebrow">How financing works</p>
+      <h1>Bad credit? No credit?<br/>We can help.</h1>
+      <p class="lede">
+        Most "no" answers from other dealers come down to your credit score. We don't start there.
+        We start with your paycheck.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>The real conversation, in 3 questions.</h2>
+      <ol class="qs">
+        <li>
+          <strong>Do you have a valid driver's license?</strong>
+          <p>The one piece we can't move forward without. Learner's + ID also works to start.</p>
+        </li>
+        <li>
+          <strong>How do you get paid?</strong>
+          <p>W-2, 1099, cash, mix — pretty much whatever your situation looks like. We just need to verify it.</p>
+        </li>
+        <li>
+          <strong>What can you put down?</strong>
+          <p>Most folks land in the {SITE.pricing.downRange} range. A little more opens up a wider lot. Less? We'll talk about a path.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--c-amber);">What you can expect</p>
+      <div class="grid">
+        <div>
+          <h3>Down payment range</h3>
+          <p class="big">{SITE.pricing.downRange}</p>
+          <p class="note">Depending on the vehicle. Tax refund counts. Family chip-in counts. We've seen creative paths.</p>
+        </div>
+        <div>
+          <h3>Weekly payment range</h3>
+          <p class="big">{SITE.pricing.weeklyRange}</p>
+          <p class="note">{SITE.pricing.weeklyNote}</p>
+        </div>
+        <div>
+          <h3>Vehicle price range</h3>
+          <p class="big">{SITE.pricing.inventoryRange}</p>
+          <p class="note">Sedans, SUVs, trucks, minivans. Inspected, reconditioned, ready to drive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Common questions</p>
+      <div class="faq">
+        <details>
+          <summary>What if I've been turned down everywhere else?</summary>
+          <p>Welcome. That's most of who we work with. We fund the loans ourselves — no bank means no score cutoff. Steady income is the signal we need.</p>
+        </details>
+        <details>
+          <summary>What about a recent bankruptcy or repo?</summary>
+          <p>We work with bankruptcy, past repos, charge-offs, all of it. Bring the pay stubs and your story. We've seen most of it.</p>
+        </details>
+        <details>
+          <summary>Will you check my credit?</summary>
+          <p>We'll verify income, address, and identity — but we don't make decisions off your score. You won't see surprise hits.</p>
+        </details>
+        <details>
+          <summary>Will the payments balloon later?</summary>
+          <p>No. Fixed from day one. What you sign for is what you pay.</p>
+        </details>
+        <details>
+          <summary>Do you put GPS trackers on the cars?</summary>
+          <p>No. We don't use GPS or repo-trigger devices. Old-school relationship. We trust you to make the payments; you trust us to honor what we agreed to.</p>
+        </details>
+        <details>
+          <summary>What documents should I bring?</summary>
+          <p>Driver's license, recent pay stubs (last 2-4), proof of address (utility bill works), and your down payment. That's the whole list.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <CTABand title="One conversation, not a credit application." lead={`Text us first — we'll tell you what's possible before you come in.`} primary="apply" />
+</Base>
+
+<style>
+  .hero-fin { background: var(--c-navy); color: var(--c-silver-l); padding: var(--space-2xl) 0; }
+  .hero-fin h1 { color: var(--c-white); }
+  .hero-fin .eyebrow { color: var(--c-amber); border-color: var(--c-amber); }
+  .hero-fin .lede { color: var(--c-silver-l); max-width: 640px; }
+
+  .qs { padding-left: 0; counter-reset: q; list-style: none; }
+  .qs li {
+    counter-increment: q;
+    padding: var(--space-md) 0 var(--space-md) 56px;
+    position: relative;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .qs li::before {
+    content: counter(q);
+    position: absolute;
+    left: 0; top: 16px;
+    width: 40px; height: 40px;
+    background: var(--c-amber);
+    color: var(--c-navy-deep);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 17px;
+  }
+  .qs li strong { display: block; font-size: 17px; margin-bottom: 4px; }
+  .qs li p { color: var(--c-charcoal-70); font-size: 15px; margin: 0; }
+  .qs li:last-child { border-bottom: none; }
+
+  .grid { display: grid; gap: var(--space-lg); }
+  .grid > div h3 { color: var(--c-white); margin-bottom: 4px; }
+  .grid > div .big { color: var(--c-amber); font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .grid > div .note { color: var(--c-silver-l); font-size: 14px; }
+  @media (min-width: 768px) {
+    .grid { grid-template-columns: 1fr 1fr 1fr; gap: var(--space-xl); }
+  }
+
+  .faq details {
+    border: 1px solid var(--c-line);
+    border-radius: 10px;
+    padding: 14px var(--space-md);
+    margin-bottom: 8px;
+    background: var(--c-white);
+  }
+  .faq summary {
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    color: var(--c-navy);
+  }
+  .faq summary::after {
+    content: '＋';
+    float: right;
+    color: var(--c-amber-d);
+    font-weight: 400;
+  }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin-top: var(--space-sm); color: var(--c-charcoal-70); font-size: 15px; }
+</style>
